@@ -1,0 +1,130 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>My Bookmark Hub</title>
+    <style>
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, sans-serif;
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 2rem;
+            background: #f5f5f5;
+        }
+
+        .tab-groups {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 1.5rem;
+        }
+
+        .group {
+            background: white;
+            border-radius: 8px;
+            padding: 1.5rem;
+            box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+        }
+
+        .group-header {
+            display: flex;
+            align-items: center;
+            margin-bottom: 1rem;
+            padding-bottom: 0.5rem;
+            border-bottom: 2px solid #eee;
+        }
+
+        .group-title {
+            margin: 0;
+            color: #1a73e8;
+            font-size: 1.25rem;
+        }
+
+        .links-list {
+            list-style: none;
+            padding: 0;
+            margin: 0;
+        }
+
+        .links-list li {
+            margin-bottom: 0.75rem;
+        }
+
+        .links-list a {
+            color: #333;
+            text-decoration: none;
+            display: block;
+            padding: 0.5rem;
+            border-radius: 4px;
+            transition: background-color 0.2s;
+        }
+
+        .links-list a:hover {
+            background-color: #f0f0f0;
+            color: #1a73e8;
+        }
+
+        .subgroup {
+            margin-left: 1.5rem;
+            margin-top: 0.5rem;
+        }
+
+        .subgroup-title {
+            color: #666;
+            font-size: 0.9rem;
+            margin: 0.5rem 0;
+        }
+    </style>
+</head>
+<body>
+    <div class="tab-groups">
+        <!-- Work Group -->
+        <div class="group">
+            <div class="group-header">
+                <h2 class="group-title">Work</h2>
+            </div>
+            <ul class="links-list">
+                <li><a href="https://outlook.office.com">Outlook</a></li>
+                <li><a href="https://teams.microsoft.com">Microsoft Teams</a></li>
+                <div class="subgroup">
+                    <h3 class="subgroup-title">Projects</h3>
+                    <li><a href="#">Project Dashboard</a></li>
+                    <li><a href="#">Team Wiki</a></li>
+                </div>
+            </ul>
+        </div>
+
+        <!-- Personal Group -->
+        <div class="group">
+            <div class="group-header">
+                <h2 class="group-title">Personal</h2>
+            </div>
+            <ul class="links-list">
+                <li><a href="https://gmail.com">Gmail</a></li>
+                <li><a href="https://calendar.google.com">Calendar</a></li>
+                <div class="subgroup">
+                    <h3 class="subgroup-title">Social</h3>
+                    <li><a href="https://twitter.com">Twitter</a></li>
+                    <li><a href="https://linkedin.com">LinkedIn</a></li>
+                </div>
+            </ul>
+        </div>
+
+        <!-- News & Media Group -->
+        <div class="group">
+            <div class="group-header">
+                <h2 class="group-title">News & Media</h2>
+            </div>
+            <ul class="links-list">
+                <li><a href="https://news.google.com">Google News</a></li>
+                <li><a href="https://youtube.com">YouTube</a></li>
+                <div class="subgroup">
+                    <h3 class="subgroup-title">Tech News</h3>
+                    <li><a href="https://techcrunch.com">TechCrunch</a></li>
+                    <li><a href="https://theverge.com">The Verge</a></li>
+                </div>
+            </ul>
+        </div>
+    </div>
+</body>
+</html>
