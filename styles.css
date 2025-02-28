@@ -2,6 +2,7 @@
     --neon-blue: #1a73e8;
     --neon-purple: #9c27b0;
     --neon-green: #00e676;
+    --neon-yellow: #ffea00;
 }
 
 .welcome-header {
@@ -72,35 +73,40 @@ body {
 
 .tab-groups {
     display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    grid-template-columns: repeat(4, 1fr);;
     gap: 1.5rem;
 }
 
 .group {
     background: rgba(255, 255, 255, 0.05);
     border-radius: 12px;
-    padding: 1.5rem;
+    padding: 1.25rem;
     backdrop-filter: blur(10px);
     position: relative;
     overflow: hidden;
     transition: all 0.3s ease;
 }
 
+/* Group style assignments */
 .group:nth-child(1) {
-    box-shadow: 0 0 15px rgba(26, 115, 232, 0.3);
-    border: 1px solid rgba(26, 115, 232, 0.3);
+    box-shadow: 0 0 15px rgba(255, 234, 0, 0.3); /* Yellow glow */
+    border: 1px solid rgba(255, 234, 0, 0.3);
 }
 
 .group:nth-child(2) {
-    box-shadow: 0 0 15px rgba(156, 39, 176, 0.3);
-    border: 1px solid rgba(156, 39, 176, 0.3);
+    box-shadow: 0 0 15px rgba(26, 115, 232, 0.3); /* Blue glow */
+    border: 1px solid rgba(26, 115, 232, 0.3);
 }
 
 .group:nth-child(3) {
-    box-shadow: 0 0 15px rgba(0, 230, 118, 0.3);
+    box-shadow: 0 0 15px rgba(0, 230, 118, 0.3); /* Green glow */
     border: 1px solid rgba(0, 230, 118, 0.3);
 }
 
+.group:nth-child(4) { /* For T3 Stack, if you add a 4th group */
+    box-shadow: 0 0 15px rgba(156, 39, 176, 0.3); /* Purple glow */
+    border: 1px solid rgba(156, 39, 176, 0.3);
+}
 .group:hover {
     transform: translateY(-5px);
     box-shadow: 0 0 25px rgba(255, 255, 255, 0.2);
@@ -114,14 +120,15 @@ body {
     border-bottom: 2px solid rgba(255, 255, 255, 0.1);
 }
 
+/* Title colors */
 .group:nth-child(1) .group-title {
-    color: var(--neon-blue);
-    text-shadow: 0 0 10px rgba(26, 115, 232, 0.5);
+    color: var(--neon-yellow);
+    text-shadow: 0 0 10px rgba(255, 234, 0, 0.5);
 }
 
 .group:nth-child(2) .group-title {
-    color: var(--neon-purple);
-    text-shadow: 0 0 10px rgba(156, 39, 176, 0.5);
+    color: var(--neon-blue);
+    text-shadow: 0 0 10px rgba(26, 115, 232, 0.5);
 }
 
 .group:nth-child(3) .group-title {
@@ -129,9 +136,14 @@ body {
     text-shadow: 0 0 10px rgba(0, 230, 118, 0.5);
 }
 
+.group:nth-child(4) .group-title {
+    color: var(--neon-purple);
+    text-shadow: 0 0 10px rgba(156, 39, 176, 0.5);
+}
+
 .group-title {
-    margin: 0;
-    font-size: 1.25rem;
+    margin: auto;
+    font-size: 1.1rem;
     font-weight: 600;
     letter-spacing: 0.5px;
 }
@@ -143,32 +155,34 @@ body {
 }
 
 .links-list li {
-    margin-bottom: 0.75rem;
+    margin-bottom: 0.5rem;
 }
 
 .links-list a {
     color: #fff;
+    font-size: 0.9rem; /* Reduced font size */
+    padding: 0.6rem; /* Reduced padding from 0.75rem */
     text-decoration: none;
     display: block;
-    padding: 0.75rem;
     border-radius: 8px;
     transition: all 0.3s ease;
     background: rgba(255, 255, 255, 0.05);
 }
 
+/* Link hover colors */
 .links-list a:hover {
     background: rgba(255, 255, 255, 0.1);
     transform: translateX(5px);
 }
 
 .group:nth-child(1) .links-list a:hover {
-    color: var(--neon-blue);
-    box-shadow: 0 0 10px rgba(26, 115, 232, 0.2);
+    color: var(--neon-yellow);
+    box-shadow: 0 0 10px rgba(255, 234, 0, 0.2);
 }
 
 .group:nth-child(2) .links-list a:hover {
-    color: var(--neon-purple);
-    box-shadow: 0 0 10px rgba(156, 39, 176, 0.2);
+    color: var(--neon-blue);
+    box-shadow: 0 0 10px rgba(26, 115, 232, 0.2);
 }
 
 .group:nth-child(3) .links-list a:hover {
@@ -176,16 +190,28 @@ body {
     box-shadow: 0 0 10px rgba(0, 230, 118, 0.2);
 }
 
+.group:nth-child(4) .links-list a:hover {
+    color: var(--neon-purple);
+    box-shadow: 0 0 10px rgba(156, 39, 176, 0.2);
+}
+
 .subgroup {
-    margin-left: 1.5rem;
-    margin-top: 0.5rem;
+    margin-left: 1rem;
+    margin-top: 0.4rem;
 }
 
 .subgroup-title {
     color: rgba(255, 255, 255, 0.6);
-    font-size: 0.9rem;
+    font-size: 0.8rem;
     margin: 0.75rem 0;
     letter-spacing: 0.5px;
+}
+
+/* Revert to stacked layout on smaller screens */
+@media (max-width: 1100px) {
+    .tab-groups {
+        grid-template-columns: repeat(2, 1fr); /* 2 columns on medium screens */
+    }
 }
 
 @media (max-width: 768px) {
@@ -197,3 +223,5 @@ body {
         grid-template-columns: 1fr;
     }
 }
+
+
